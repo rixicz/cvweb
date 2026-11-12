@@ -184,6 +184,13 @@ export const cvDataEn: CVContent = {
   ],
   projects: [
     {
+      name: "gyri_meal",
+      description: "Python scraper that pulls the daily canteen menu from the Gyri cafeteria, extracts meal names and allergens, and pushes a formatted lunch summary with a generated menu image to a phone via ntfy notifications.",
+      tech: ["Python", "BeautifulSoup", "Requests", "Pillow", "Web Scraping"],
+      githubUrl: "https://github.com/rixicz/gyri_meal",
+      featured: true
+    },
+    {
       name: "Nand2Tetris",
       description: "Assembled a complete 16-bit Hack computer from first principles (elementary logic gates up to ALU, CPU, Memory, and Hack assembly interpreter).",
       tech: ["HDL", "Computer Architecture", "Hardware Sim", "Assembly"],
@@ -196,13 +203,6 @@ export const cvDataEn: CVContent = {
       tech: ["Power BI", "Microsoft Azure", "Cloud Concepts", "Analytics"],
       githubUrl: "https://github.com/rixicz/MicrosoftTechLearn",
       featured: true
-    },
-    {
-      name: "JavaScript30",
-      description: "Practical implementations of 30 vanilla JavaScript projects, practicing DOM manipulation, HTML5 Canvas, audio APIs, CSS variables, and event systems without frameworks.",
-      tech: ["JavaScript", "HTML5", "CSS3", "Web APIs"],
-      githubUrl: "https://github.com/rixicz/JavaScript30",
-      featured: false
     },
     {
       name: "Calculator",
@@ -395,6 +395,13 @@ export const cvDataCz: CVContent = {
   ],
   projects: [
     {
+      name: "gyri_meal",
+      description: "Python scraper, který stahuje denní menu školní jídelny Gyri, rozpoznává názvy jídel a alergeny a posílá naformátovaný přehled obědů včetně vygenerovaného obrázku menu do telefonu přes ntfy.",
+      tech: ["Python", "BeautifulSoup", "Requests", "Pillow", "Web scraping"],
+      githubUrl: "https://github.com/rixicz/gyri_meal",
+      featured: true
+    },
+    {
       name: "Nand2Tetris",
       description: "Sestavení kompletního 16bitového počítače Hack od základních logických hradel až po ALU, procesor, paměťovou hierarchii a assembler.",
       tech: ["HDL", "Architektura počítačů", "Simulace HW", "Assembler"],
@@ -407,13 +414,6 @@ export const cvDataCz: CVContent = {
       tech: ["Power BI", "Microsoft Azure", "Cloud", "Analytika dat"],
       githubUrl: "https://github.com/rixicz/MicrosoftTechLearn",
       featured: true
-    },
-    {
-      name: "JavaScript30",
-      description: "Sada 30 praktických projektů v čistém JavaScriptu bez externích frameworků – práce s DOM, HTML5 Canvas, zvukovými API a CSS proměnnými.",
-      tech: ["JavaScript", "HTML5", "CSS3", "Web APIs"],
-      githubUrl: "https://github.com/rixicz/JavaScript30",
-      featured: false
     },
     {
       name: "Calculator",
