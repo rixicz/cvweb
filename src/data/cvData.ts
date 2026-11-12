@@ -1,21 +1,3 @@
-export interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  type?: string;
-  description: string[];
-  skills: string[];
-}
-
-export interface Education {
-  institution: string;
-  degree: string;
-  period: string;
-  location: string;
-  description: string[];
-}
-
 export interface Project {
   name: string;
   description: string;
@@ -27,7 +9,13 @@ export interface Project {
 export interface Certification {
   name: string;
   issuer: string;
-  category: 'tech' | 'psychology' | 'language' | 'competition';
+  category: 'tech' | 'psychology' | 'language';
+  badgeLabel?: string;
+}
+
+export interface Competition {
+  name: string;
+  organizer: string;
   badgeLabel?: string;
 }
 
@@ -48,11 +36,10 @@ export interface CVContent {
   };
   nav: {
     about: string;
-    experience: string;
-    education: string;
     projects: string;
     skills: string;
     certifications: string;
+    competitions: string;
     contact: string;
   };
   hero: {
@@ -64,24 +51,21 @@ export interface CVContent {
     contactMe: string;
   };
   sections: {
-    experienceTitle: string;
-    experienceSubtitle: string;
-    educationTitle: string;
-    educationSubtitle: string;
     projectsTitle: string;
     projectsSubtitle: string;
     skillsTitle: string;
     skillsSubtitle: string;
     certificationsTitle: string;
     certificationsSubtitle: string;
+    competitionsTitle: string;
+    competitionsSubtitle: string;
     contactTitle: string;
     contactSubtitle: string;
   };
-  experiences: Experience[];
-  education: Education[];
   projects: Project[];
   skillCategories: SkillCategory[];
   certifications: Certification[];
+  competitions: Competition[];
   languages: { language: string; proficiency: string }[];
   footer: {
     rights: string;
@@ -101,11 +85,10 @@ export const cvDataEn: CVContent = {
   },
   nav: {
     about: "About",
-    experience: "Experience",
-    education: "Education",
     projects: "Projects",
     skills: "Skills",
     certifications: "Certifications",
+    competitions: "Competitions",
     contact: "Contact"
   },
   hero: {
@@ -117,71 +100,17 @@ export const cvDataEn: CVContent = {
     contactMe: "Get in Touch"
   },
   sections: {
-    experienceTitle: "Work Experience",
-    experienceSubtitle: "Professional journey combining digital HR practices, cultural education, and customer operations.",
-    educationTitle: "Education",
-    educationSubtitle: "Academic foundations and continuous high school studies in Říčany.",
     projectsTitle: "Featured Projects",
     projectsSubtitle: "Selected software development, hardware architecture, and data engineering projects.",
     skillsTitle: "Core Competencies",
     skillsSubtitle: "A balanced blend of engineering capabilities, HR practices, and analytical disciplines.",
-    certificationsTitle: "Certifications & Achievements",
-    certificationsSubtitle: "Verified courses, international testing, and competitive milestones.",
+    certificationsTitle: "Certifications",
+    certificationsSubtitle: "Verified courses and international testing.",
+    competitionsTitle: "Competitions",
+    competitionsSubtitle: "Competitive milestones and achievements.",
     contactTitle: "Let's Connect",
     contactSubtitle: "Open to discussions, traineeship opportunities, and technical projects."
   },
-  experiences: [
-    {
-      company: "CONECTIO Group",
-      role: "HR Digi Trainee",
-      period: "January 2026 – Present",
-      location: "Prague, Czechia",
-      type: "Traineeship",
-      description: [
-        "Contributing to recruitment digitalization, applicant tracking optimizations, and internal HR automation workflows.",
-        "Exploring digital tools and data dashboards to enhance candidate discovery and hiring team coordination.",
-        "Connecting modern tech capabilities with practical talent acquisition and employee experience needs."
-      ],
-      skills: ["Recruitment", "Digital HR", "Process Optimization", "Power BI", "Data Analysis"]
-    },
-    {
-      company: "Národní památkový ústav",
-      role: "Tour Guide (Průvodce)",
-      period: "July 2026 – Present",
-      location: "Czechia",
-      type: "Part-time",
-      description: [
-        "Delivering comprehensive guided tours in both Czech and English to international and domestic tourist groups.",
-        "Communicating complex historical and cultural contexts clearly and engagingly under live presentation dynamics.",
-        "Exercising crowd management, interpersonal communication, and active problem solving."
-      ],
-      skills: ["Public Speaking", "English Fluency", "Cultural Heritage", "Client Experience", "Storytelling"]
-    },
-    {
-      company: "ORLEN S.A.",
-      role: "Cashier (Pokladník)",
-      period: "July 2025 – August 2025",
-      location: "Prague, Czechia",
-      type: "Seasonal",
-      description: [
-        "Handled front-line customer operations, POS systems, cash reconciliations, and retail transactions under fast-paced peak hours.",
-        "Ensured compliance with company customer satisfaction standards, store inventory restocking, and team collaboration."
-      ],
-      skills: ["Customer Service", "Financial Accuracy", "POS Operations", "Teamwork", "Patience Under Pressure"]
-    }
-  ],
-  education: [
-    {
-      institution: "Gymnázium Říčany",
-      degree: "General Secondary Education (Všeobecné)",
-      period: "September 2021 – May 2029",
-      location: "Říčany, Czechia",
-      description: [
-        "Eight-year prestigious grammar school curriculum emphasizing analytical thinking, mathematics, natural sciences, foreign languages, and humanities.",
-        "Independent elective studies and extracurricular focus on Computer Science, AP Psychology, and Biomechanics."
-      ]
-    }
-  ],
   projects: [
     {
       name: "gyri_meal",
@@ -276,17 +205,17 @@ export const cvDataEn: CVContent = {
       issuer: "College Board / Advanced Placement",
       category: "psychology",
       badgeLabel: "Psychology"
-    },
+    }
+  ],
+  competitions: [
     {
       name: "Best in English",
-      issuer: "International English Competition",
-      category: "competition",
+      organizer: "International English Competition",
       badgeLabel: "Language Excellence"
     },
     {
       name: "Biomechaton",
-      issuer: "Biomechanics Challenge",
-      category: "competition",
+      organizer: "Biomechanics Challenge",
       badgeLabel: "Biomechanics"
     }
   ],
@@ -312,11 +241,10 @@ export const cvDataCz: CVContent = {
   },
   nav: {
     about: "O mně",
-    experience: "Zkušenosti",
-    education: "Vzdělání",
     projects: "Projekty",
     skills: "Dovednosti",
     certifications: "Certifikace",
+    competitions: "Soutěže",
     contact: "Kontakt"
   },
   hero: {
@@ -328,71 +256,17 @@ export const cvDataCz: CVContent = {
     contactMe: "Napsat zprávu"
   },
   sections: {
-    experienceTitle: "Pracovní zkušenosti",
-    experienceSubtitle: "Profesní cesta propojující digitalizaci HR, kulturní průvodcovství a práci se zákazníky.",
-    educationTitle: "Vzdělání",
-    educationSubtitle: "Akademický základ a probíhající studium na gymnáziu v Říčanech.",
     projectsTitle: "Vybrané projekty",
     projectsSubtitle: "Ukázky softwarových projektů, hardwarové architektury a práce s Microsoft technologiemi.",
     skillsTitle: "Klíčové kompetence",
     skillsSubtitle: "Vyvážený mix technologických schopností, moderních HR postupů a analytických oborů.",
-    certificationsTitle: "Certifikace & Úspěchy",
-    certificationsSubtitle: "Ověřené kurzy, mezinárodní zkoušky a soutěžní ocenění.",
+    certificationsTitle: "Certifikace",
+    certificationsSubtitle: "Ověřené kurzy a mezinárodní zkoušky.",
+    competitionsTitle: "Soutěže",
+    competitionsSubtitle: "Soutěžní úspěchy a ocenění.",
     contactTitle: "Spojme se",
     contactSubtitle: "Jsem otevřen diskusím, stážovým příležitostem a zajímavým projektům."
   },
-  experiences: [
-    {
-      company: "CONECTIO Group",
-      role: "HR Digi Trainee",
-      period: "Leden 2026 – Současnost",
-      location: "Praha, Česká republika",
-      type: "Trainee program",
-      description: [
-        "Spolupráce na digitalizaci náborových procesů, optimalizaci systémů pro správu uchazečů a automatizaci HR agendy.",
-        "Práce s datovými přehledy a digitálními nástroji pro zefektivnění vyhledávání talentů a týmové koordinace.",
-        "Propojování moderních technologických řešení s praktickými potřebami náboru a péče o zaměstnance."
-      ],
-      skills: ["Nábor & Recruitment", "Digitální HR", "Optimalizace procesů", "Power BI", "Analýza dat"]
-    },
-    {
-      company: "Národní památkový ústav",
-      role: "Průvodce",
-      period: "Červenec 2026 – Současnost",
-      location: "Česká republika",
-      type: "Částečný úvazek",
-      description: [
-        "Vedení komentovaných prohlídek v českém a anglickém jazyce pro tuzemské i zahraniční návštěvníky.",
-        "Srozumitelná a poutavá prezentace historických i architektonických souvislostí v živém kontaktu s publikem.",
-        "Rozvoj rétorických dovedností, krizové komunikace a péče o návštěvnický zážitek."
-      ],
-      skills: ["Prezentační dovednosti", "Plynulá angličtina", "Kulturní dědictví", "Komunikace", "Klientský přístup"]
-    },
-    {
-      company: "ORLEN S.A.",
-      role: "Pokladník",
-      period: "Červenec 2025 – Srpen 2025",
-      location: "Praha, Česká republika",
-      type: "Sezónní brigáda",
-      description: [
-        "Péče o zákazníky, obsluha pokladního systému POS, finanční hotovostní a bezhotovostní uzávěrky v exponovaných časech.",
-        "Dodržování standardů kvality zákaznického servisu, doplňování zboží a efektivní týmová spolupráce."
-      ],
-      skills: ["Zákaznický servis", "Práce s financemi", "Obsluha POS", "Týmová práce", "Práce ve stresu"]
-    }
-  ],
-  education: [
-    {
-      institution: "Gymnázium Říčany",
-      degree: "Všeobecné gymnázium (osmileté)",
-      period: "Září 2021 – Květen 2029",
-      location: "Říčany, Česká republika",
-      description: [
-        "Studium na prestižním gymnáziu s důrazem na analytické myšlení, matematiku, přírodní vědy, cizí jazyky a společenskovědní předměty.",
-        "Aktivní samostudium a zájmové zaměření na informatiku, AP Psychologii a biomechaniku."
-      ]
-    }
-  ],
   projects: [
     {
       name: "gyri_meal",
@@ -487,17 +361,17 @@ export const cvDataCz: CVContent = {
       issuer: "College Board / Advanced Placement",
       category: "psychology",
       badgeLabel: "Psychologie"
-    },
+    }
+  ],
+  competitions: [
     {
       name: "Best in English",
-      issuer: "Mezinárodní anglická soutěž",
-      category: "competition",
+      organizer: "Mezinárodní anglická soutěž",
       badgeLabel: "Jazyková excelence"
     },
     {
       name: "Biomechaton",
-      issuer: "Soutěž v biomechanice",
-      category: "competition",
+      organizer: "Soutěž v biomechanice",
       badgeLabel: "Biomechanika"
     }
   ],

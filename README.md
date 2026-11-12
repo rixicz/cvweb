@@ -1,17 +1,16 @@
 # Patrik Šmidoch — CV & Portfolio
 
-This site is the online CV of **Patrik Šmidoch**, an HR Digi Trainee at CONECTIO Group and a grammar school student in Říčany, Czechia. It covers his work experience, education, projects, skills, and certifications in one scrollable page — in English or Czech.
+This site is the online CV of **Patrik Šmidoch**, an HR Digi Trainee at CONECTIO Group and a grammar school student in Říčany, Czechia. It covers his projects, skills, certifications, and competitions in one scrollable page — in English or Czech.
 
 **Open to:** internships, traineeships, and technical collaborations.
 
 ## What you'll find
 
 - **About** — a short profile of where HR, technology, and analytics meet for him
-- **Experience** — HR Digi Trainee at CONECTIO Group, tour guide at the National Heritage Institute (*Národní památkový ústav*), and cashier at ORLEN
-- **Education** — eight-year general programme at Gymnázium Říčany, with elective focus on computer science, AP Psychology, and biomechanics
-- **Projects** — Nand2Tetris (16-bit computer built from logic gates up), MicrosoftTechLearn (Azure / Power BI), JavaScript30, Calculator, and Etch-a-Sketch
+- **Projects** — gyri_meal (school canteen menu scraper), Nand2Tetris (16-bit computer built from logic gates up), MicrosoftTechLearn (Azure / Power BI), Calculator, and Etch-a-Sketch
 - **Skills** — programming and web, data and enterprise tooling, HR and recruitment, plus analytical disciplines
-- **Certifications** — Linux Unhatched, MOOC.fi Python, AP Psychology, Best in English, and Biomechaton
+- **Certifications** — Linux Unhatched, MOOC.fi Python, and AP Psychology
+- **Competitions** — Best in English and Biomechaton
 
 ## Using the site
 

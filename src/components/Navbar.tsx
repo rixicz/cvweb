@@ -10,11 +10,10 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: data.nav.about, href: '#about' },
-    { label: data.nav.experience, href: '#experience' },
-    { label: data.nav.education, href: '#education' },
     { label: data.nav.projects, href: '#projects' },
     { label: data.nav.skills, href: '#skills' },
     { label: data.nav.certifications, href: '#certifications' },
+    { label: data.nav.competitions, href: '#competitions' },
   ];
 
   return (

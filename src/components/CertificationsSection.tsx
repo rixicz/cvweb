@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Award, CheckCircle, Terminal, BookOpen, Trophy } from 'lucide-react';
+import { Award, CheckCircle, Terminal, BookOpen } from 'lucide-react';
 
 export const CertificationsSection: React.FC = () => {
   const { data } = useLanguage();
@@ -13,9 +13,8 @@ export const CertificationsSection: React.FC = () => {
         return <BookOpen className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
       case 'language':
         return <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
-      case 'competition':
       default:
-        return <Trophy className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
+        return <Award className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
     }
   };
 
