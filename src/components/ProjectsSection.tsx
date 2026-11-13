@@ -8,7 +8,7 @@ export const ProjectsSection: React.FC = () => {
   return (
     <section id="projects" className="py-16 md:py-20 border-b border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="mb-12">
+        <div className="readable-shadow mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             {data.sections.projectsTitle}
           </h2>
@@ -17,11 +17,11 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="readable-shadow grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2">
           {data.projects.map((proj, idx) => (
             <div
               key={idx}
-              className={`p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 shadow-xs hover:border-slate-400 dark:hover:border-slate-600 flex flex-col justify-between transition-all ${
+              className={`group flex flex-col justify-between rounded-2xl p-5 transition-colors hover:bg-slate-100/70 dark:hover:bg-slate-800/40 sm:p-6 ${
                 proj.featured ? 'md:col-span-2' : ''
               }`}
             >
@@ -32,7 +32,7 @@ export const ProjectsSection: React.FC = () => {
                       {proj.name}
                     </h3>
                     {proj.featured && (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800/60">
                         <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
                         Featured
                       </span>
@@ -44,23 +44,23 @@ export const ProjectsSection: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`View ${proj.name} repository on GitHub`}
-                    className="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                    className="p-1.5 rounded-lg text-slate-700 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
 
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 mb-6">
+                <p className="text-sm font-medium leading-relaxed text-slate-800 dark:text-slate-100 mb-6">
                   {proj.description}
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/70 pt-3 dark:border-slate-800/60">
                 <div className="flex flex-wrap gap-1.5">
                   {proj.tech.map((t, tIdx) => (
                     <span
                       key={tIdx}
-                      className="text-xs px-2.5 py-0.5 rounded-md font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                      className="text-xs px-2.5 py-0.5 rounded-md font-semibold bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100"
                     >
                       {t}
                     </span>
@@ -71,7 +71,7 @@ export const ProjectsSection: React.FC = () => {
                   href={proj.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-900 dark:text-slate-100 hover:text-slate-950 dark:hover:text-white transition-colors"
                 >
                   <Github className="w-3.5 h-3.5" />
                   <span>GitHub</span>

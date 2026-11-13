@@ -21,8 +21,8 @@ export const SkillsSection: React.FC = () => {
 
   return (
     <section id="skills" className="py-16 md:py-20 border-b border-slate-200/80 dark:border-slate-800/80">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="mb-12">
+      <div className="readable-shadow max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="readable-shadow mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             {data.sections.skillsTitle}
           </h2>
@@ -32,12 +32,9 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Skill categories grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div className="mb-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           {data.skillCategories.map((cat, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 shadow-xs"
-            >
+            <div key={idx} className="p-4 sm:p-5">
               <div className="flex items-center gap-2.5 mb-4">
                 <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
                   {getCategoryIcon(idx)}
@@ -51,7 +48,7 @@ export const SkillsSection: React.FC = () => {
                 {cat.skills.map((skill, sIdx) => (
                   <span
                     key={sIdx}
-                    className="text-xs sm:text-sm px-3 py-1.5 rounded-lg font-medium bg-slate-50 dark:bg-slate-800/70 text-slate-800 dark:text-slate-200 border border-slate-200/70 dark:border-slate-700/60"
+                    className="text-xs sm:text-sm px-3 py-1.5 rounded-lg font-semibold bg-slate-50 dark:bg-slate-800/70 text-slate-900 dark:text-slate-100 border border-slate-200/70 dark:border-slate-700/60"
                   >
                     {skill.name}
                   </span>
@@ -62,7 +59,7 @@ export const SkillsSection: React.FC = () => {
         </div>
 
         {/* Languages banner */}
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800/80 shadow-xs">
+        <div className="border-t border-slate-200/70 pt-6 dark:border-slate-800/60 sm:px-2">
           <div className="flex items-center gap-2.5 mb-4">
             <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
               <Languages className="w-4 h-4" />
@@ -76,12 +73,12 @@ export const SkillsSection: React.FC = () => {
             {data.languages.map((lang, lIdx) => (
               <div
                 key={lIdx}
-                className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/40"
+                className="flex items-center justify-between border-b border-slate-200/60 py-2.5 dark:border-slate-800/50"
               >
                 <span className="font-semibold text-slate-900 dark:text-white text-sm">
                   {lang.language}
                 </span>
-                <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-200">
                   {lang.proficiency}
                 </span>
               </div>

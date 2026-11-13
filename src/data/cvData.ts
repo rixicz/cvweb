@@ -43,7 +43,6 @@ export interface CVContent {
     contact: string;
   };
   hero: {
-    badge: string;
     summary: string;
     downloadCV: string;
     copyEmail: string;
@@ -92,7 +91,6 @@ export const cvDataEn: CVContent = {
     contact: "Contact"
   },
   hero: {
-    badge: "Available for internships & collaborations",
     summary: "High school student passionate about the intersection of Human Resources, Recruitment, Programming (Python, C), Web Development (HTML, CSS, JavaScript), and Microsoft Technologies (Power BI, Azure).",
     downloadCV: "Download CV (PDF)",
     copyEmail: "Copy Email",
@@ -248,7 +246,6 @@ export const cvDataCz: CVContent = {
     contact: "Kontakt"
   },
   hero: {
-    badge: "Otevřen stážím a profesním příležitostem",
     summary: "Student víceletého gymnázia se zájmem o propojení moderního HR, náboru, programování (Python, C), webového vývoje (HTML, CSS, JavaScript) a technologií Microsoft (Power BI, Azure).",
     downloadCV: "Stáhnout CV (PDF)",
     copyEmail: "Kopírovat e-mail",

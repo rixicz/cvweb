@@ -15,10 +15,10 @@ export const Footer: React.FC<FooterProps> = ({ onCopyEmail, copied }) => {
   };
 
   return (
-    <footer id="contact" className="pt-16 pb-12 bg-white dark:bg-slate-950 transition-colors">
+    <footer id="contact" className="pt-16 pb-12 transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Contact Banner */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white dark:bg-slate-900/90 dark:border dark:border-slate-800 shadow-xl mb-16 text-center sm:text-left">
+        <div className="mb-16 rounded-2xl bg-slate-900 p-8 text-center text-white shadow-xl dark:border dark:border-slate-800 sm:rounded-3xl sm:p-10 sm:text-left">
           <div className="max-w-2xl">
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
               {data.sections.contactTitle}
