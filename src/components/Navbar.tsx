@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { useTheme } from '../context/ThemeContext';
-import { Sun, Moon, FileDown, Menu, X, Globe } from 'lucide-react';
+import { FileDown, Menu, X } from 'lucide-react';
 
 const SECTION_IDS = ['about', 'projects', 'skills', 'certifications', 'competitions', 'contact'];
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage, data } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>(SECTION_IDS[0]);
   const [scrolled, setScrolled] = useState(false);
@@ -26,7 +24,7 @@ export const Navbar: React.FC = () => {
 
     const update = () => {
       frame = 0;
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 20);
       const marker = window.innerHeight * 0.35;
       let current = SECTION_IDS[0];
 
@@ -61,25 +59,46 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  const linkClass = (isActive: boolean, mobile = false) =>
-    `${mobile ? 'flex px-3 py-2' : 'px-3 py-1.5'} rounded-full text-sm font-medium transition-colors ${
-      isActive
-        ? 'bg-slate-900 text-white shadow-sm dark:bg-white dark:text-slate-900'
-        : 'readable-shadow text-slate-800 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-white'
-    }`;
+  const languageSwitch = (
+    <div className="flex items-center gap-1.5 text-xs font-semibold">
+      <button
+        onClick={() => setLanguage('en')}
+        aria-label="Switch to English"
+        aria-pressed={language === 'en'}
+        className={`transition-colors ${language === 'en' ? 'text-accent' : 'text-muted hover:text-primary'}`}
+      >
+        EN
+      </button>
+      <span className="text-white/20">/</span>
+      <button
+        onClick={() => setLanguage('cz')}
+        aria-label="Přepnout do češtiny"
+        aria-pressed={language === 'cz'}
+        className={`transition-colors ${language === 'cz' ? 'text-accent' : 'text-muted hover:text-primary'}`}
+      >
+        CZ
+      </button>
+    </div>
+  );
 
   return (
-    <header className="sticky top-3 z-40 mx-auto w-full max-w-6xl">
+    <header className="sticky top-0 z-40">
       <div
-        className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+        className={`shell transition-colors duration-200 ${
           scrolled || mobileMenuOpen
-            ? 'border-white/60 bg-white/90 shadow-lg shadow-slate-900/5 backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/90'
-            : 'border-transparent bg-transparent shadow-none'
+            ? 'border-b border-[var(--line)] bg-[#0b0f15]/85 backdrop-blur-xl'
+            : 'bg-transparent'
         }`}
       >
-        <div className="flex h-14 items-center gap-3 px-2.5 sm:px-3">
-          {/* Desktop section links */}
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Sections">
+        <div className="flex h-20 items-center gap-6">
+          <a
+            href="#about"
+            className="text-base font-semibold tracking-tight text-primary transition-colors hover:text-accent"
+          >
+            {data.meta.name}
+          </a>
+
+          <nav className="ml-auto hidden items-center gap-8 lg:flex" aria-label="Sections">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -87,7 +106,9 @@ export const Navbar: React.FC = () => {
                   key={link.id}
                   href={link.href}
                   aria-current={isActive ? 'page' : undefined}
-                  className={linkClass(isActive)}
+                  className={`text-[0.95rem] font-medium transition-colors ${
+                    isActive ? 'text-accent' : 'text-secondary hover:text-primary'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -95,70 +116,34 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-2">
-            {/* Language Switch */}
-            <div className="hidden items-center rounded-lg border border-slate-200 bg-slate-100/70 p-0.5 text-xs font-semibold dark:border-slate-800 dark:bg-slate-900/70 sm:flex">
-              <button
-                onClick={() => setLanguage('en')}
-                aria-label="Switch to English"
-                className={`px-2 py-1 rounded-md transition-all ${
-                  language === 'en'
-                    ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage('cz')}
-                aria-label="Přepnout do češtiny"
-                className={`px-2 py-1 rounded-md transition-all ${
-                  language === 'cz'
-                    ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs'
-                    : 'text-slate-700 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white'
-                }`}
-              >
-                CZ
-              </button>
-            </div>
+          <div className="ml-auto flex items-center gap-5 lg:ml-8">
+            <div className="hidden sm:block">{languageSwitch}</div>
 
-            {/* Dark / Light Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle color theme"
-              className="p-2 rounded-lg text-slate-800 hover:text-slate-950 dark:text-slate-100 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
-
-            {/* PDF Resume CTA */}
             <a
               href={data.meta.pdfPath}
               download="Patrik_Smidoch_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200 transition-all shadow-xs"
+              className="action-btn hidden py-2 px-4 text-sm sm:inline-flex"
             >
-              <FileDown className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">{data.hero.downloadCV}</span>
+              <FileDown className="h-4 w-4 text-accent" />
+              <span>{data.hero.downloadCV}</span>
             </a>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Open navigation menu"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
-              className="p-2 rounded-lg text-slate-900 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors md:hidden"
+              className="p-2 -mr-2 text-primary transition-colors hover:text-accent lg:hidden"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile drop-down menu */}
         {mobileMenuOpen && (
-          <div className="border-t border-slate-200/80 px-3 pb-4 pt-3 dark:border-slate-800/80 md:hidden">
-            <nav className="flex flex-col gap-1" aria-label="Sections">
+          <div className="border-t border-[var(--line)] pb-6 pt-3 lg:hidden">
+            <nav className="flex flex-col" aria-label="Sections">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -167,7 +152,9 @@ export const Navbar: React.FC = () => {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     aria-current={isActive ? 'page' : undefined}
-                    className={linkClass(isActive, true)}
+                    className={`py-2.5 text-sm font-medium transition-colors ${
+                      isActive ? 'text-accent' : 'text-secondary hover:text-primary'
+                    }`}
                   >
                     {link.label}
                   </a>
@@ -175,33 +162,16 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            <div className="mt-3 flex items-center justify-between border-t border-slate-200/80 pt-3 dark:border-slate-800/80">
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-                <div className="flex items-center rounded-lg border border-slate-200 dark:border-slate-800 p-0.5 bg-slate-100 dark:bg-slate-900 text-xs font-semibold">
-                  <button
-                    onClick={() => setLanguage('en')}
-                    className={`px-2 py-1 rounded ${language === 'en' ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300'}`}
-                  >
-                    EN
-                  </button>
-                  <button
-                    onClick={() => setLanguage('cz')}
-                    className={`px-2 py-1 rounded ${language === 'cz' ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300'}`}
-                  >
-                    CZ
-                  </button>
-                </div>
-              </div>
-
+            <div className="mt-4 flex items-center justify-between border-t border-[var(--line)] pt-4">
+              {languageSwitch}
               <a
                 href={data.meta.pdfPath}
                 download="Patrik_Smidoch_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+                className="action-btn py-1.5 text-xs"
               >
-                <FileDown className="w-3.5 h-3.5" />
+                <FileDown className="h-3.5 w-3.5 text-accent" />
                 <span>{data.hero.downloadCV}</span>
               </a>
             </div>

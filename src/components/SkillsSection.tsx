@@ -1,89 +1,38 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Code, Database, Users, Sparkles, Languages } from 'lucide-react';
 
 export const SkillsSection: React.FC = () => {
   const { data } = useLanguage();
 
-  const getCategoryIcon = (index: number) => {
-    switch (index) {
-      case 0:
-        return <Code className="w-4 h-4 text-brand-600 dark:text-brand-400" />;
-      case 1:
-        return <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />;
-      case 2:
-        return <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />;
-      case 3:
-      default:
-        return <Sparkles className="w-4 h-4 text-amber-600 dark:text-amber-400" />;
-    }
-  };
-
   return (
-    <section id="skills" className="py-16 md:py-20 border-b border-slate-200/80 dark:border-slate-800/80">
-      <div className="readable-shadow max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="readable-shadow mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-            {data.sections.skillsTitle}
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-            {data.sections.skillsSubtitle}
-          </p>
-        </div>
+    <section id="skills" className="section">
+      <div className="shell">
+        <h2 className="section-title text-primary">
+          {data.sections.skillsTitle}
+        </h2>
 
-        {/* Skill categories grid */}
-        <div className="mb-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
           {data.skillCategories.map((cat, idx) => (
-            <div key={idx} className="p-4 sm:p-5">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
-                  {getCategoryIcon(idx)}
-                </div>
-                <h3 className="font-bold text-slate-900 dark:text-white text-base">
-                  {cat.title}
-                </h3>
+            <div key={idx} className="border-t border-[var(--line)] pt-6">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="text-xl font-semibold text-primary sm:text-2xl">{cat.title}</h3>
+                <span className="font-mono text-sm tabular-nums text-muted">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <ul className="mt-5 flex flex-wrap gap-2.5">
                 {cat.skills.map((skill, sIdx) => (
-                  <span
+                  <li
                     key={sIdx}
-                    className="text-xs sm:text-sm px-3 py-1.5 rounded-lg font-semibold bg-slate-50 dark:bg-slate-800/70 text-slate-900 dark:text-slate-100 border border-slate-200/70 dark:border-slate-700/60"
+                    className="rounded-full border border-[var(--line-strong)] bg-white/5 px-4 py-2 text-sm font-medium text-secondary transition-colors hover:border-sky-400/50 hover:text-primary sm:text-base"
                   >
                     {skill.name}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
-        </div>
-
-        {/* Languages banner */}
-        <div className="border-t border-slate-200/70 pt-6 dark:border-slate-800/60 sm:px-2">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              <Languages className="w-4 h-4" />
-            </div>
-            <h3 className="font-bold text-slate-900 dark:text-white text-base">
-              Languages
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {data.languages.map((lang, lIdx) => (
-              <div
-                key={lIdx}
-                className="flex items-center justify-between border-b border-slate-200/60 py-2.5 dark:border-slate-800/50"
-              >
-                <span className="font-semibold text-slate-900 dark:text-white text-sm">
-                  {lang.language}
-                </span>
-                <span className="text-xs font-medium text-slate-700 dark:text-slate-200">
-                  {lang.proficiency}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

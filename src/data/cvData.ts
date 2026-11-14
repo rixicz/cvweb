@@ -1,8 +1,3 @@
-import bestInEnglishPreview from './previews/best-in-english.webp';
-import cyberCompetitionPreview from './previews/cyber-security-competition.webp';
-import fcePreview from './previews/fce.webp';
-import introductionToProgrammingPreview from './previews/introduction-to-programming.webp';
-
 export interface Project {
   name: string;
   description: string;
@@ -16,14 +11,14 @@ export interface Certification {
   issuer: string;
   category: 'tech' | 'psychology' | 'language';
   badgeLabel?: string;
-  previewUrl?: string;
+  certificateUrl?: string;
 }
 
 export interface Competition {
   name: string;
   organizer: string;
   badgeLabel?: string;
-  previewUrl?: string;
+  certificateUrl?: string;
 }
 
 export interface SkillCategory {
@@ -53,6 +48,7 @@ export interface CVContent {
     summary: string;
     downloadCV: string;
     copyEmail: string;
+    copiedLabel: string;
     copiedNotice: string;
     contactMe: string;
   };
@@ -65,6 +61,7 @@ export interface CVContent {
     certificationsSubtitle: string;
     competitionsTitle: string;
     competitionsSubtitle: string;
+    viewCertificate: string;
     contactTitle: string;
     contactSubtitle: string;
   };
@@ -101,6 +98,7 @@ export const cvDataEn: CVContent = {
     summary: "High school student passionate about the intersection of Human Resources, Recruitment, Programming (Python, C), Web Development (HTML, CSS, JavaScript), and Microsoft Technologies (Power BI, Azure).",
     downloadCV: "Download CV (PDF)",
     copyEmail: "Copy Email",
+    copiedLabel: "Copied!",
     copiedNotice: "Email address copied to clipboard!",
     contactMe: "Get in Touch"
   },
@@ -113,6 +111,7 @@ export const cvDataEn: CVContent = {
     certificationsSubtitle: "Verified courses and international testing.",
     competitionsTitle: "Competitions",
     competitionsSubtitle: "Competitive milestones and achievements.",
+    viewCertificate: "View certificate",
     contactTitle: "Let's Connect",
     contactSubtitle: "Open to discussions, traineeship opportunities, and technical projects."
   },
@@ -159,7 +158,7 @@ export const cvDataEn: CVContent = {
       skills: [
         { name: "Python" },
         { name: "C Language" },
-        { name: "JavaScript (ES6+)" },
+        { name: "JavaScript" },
         { name: "HTML5 & CSS3" },
         { name: "Git & GitHub" },
         { name: "Linux / CLI" }
@@ -197,27 +196,29 @@ export const cvDataEn: CVContent = {
       name: "Linux Unhatched",
       issuer: "Cisco Networking Academy / NDG",
       category: "tech",
-      badgeLabel: "Linux Systems"
+      badgeLabel: "Linux Systems",
+      certificateUrl: "https://example.com/certificates/linux-unhatched"
     },
     {
       name: "Introduction to Programming",
       issuer: "University of Helsinki (MOOC.fi)",
       category: "tech",
       badgeLabel: "Python MOOC · 5 ECTS",
-      previewUrl: introductionToProgrammingPreview
+      certificateUrl: "https://example.com/certificates/introduction-to-programming"
     },
     {
       name: "AP Psychology",
       issuer: "College Board / Advanced Placement",
       category: "psychology",
-      badgeLabel: "Psychology"
+      badgeLabel: "Psychology",
+      certificateUrl: "https://example.com/certificates/ap-psychology"
     },
     {
       name: "First Certificate in English (FCE)",
       issuer: "Cambridge English",
       category: "language",
       badgeLabel: "Grade A · C1",
-      previewUrl: fcePreview
+      certificateUrl: "https://example.com/certificates/fce"
     }
   ],
   competitions: [
@@ -225,23 +226,24 @@ export const cvDataEn: CVContent = {
       name: "Best in English",
       organizer: "Czech-us / Institute of Competencies and Development",
       badgeLabel: "Language Excellence",
-      previewUrl: bestInEnglishPreview
+      certificateUrl: "https://example.com/certificates/best-in-english"
     },
     {
       name: "Cyber Security Competition",
       organizer: "Centrum kybernetické bezpečnosti",
       badgeLabel: "2nd Place · Regional Round",
-      previewUrl: cyberCompetitionPreview
+      certificateUrl: "https://example.com/certificates/cyber-security-competition"
     },
     {
       name: "Biomechaton",
       organizer: "Biomechanics Challenge",
-      badgeLabel: "Biomechanics"
+      badgeLabel: "Biomechanics",
+      certificateUrl: "https://example.com/certificates/biomechaton"
     }
   ],
   languages: [
-    { language: "Czech", proficiency: "Native or Bilingual Proficiency" },
-    { language: "English", proficiency: "Full Professional Proficiency (C1/C2)" }
+    { language: "Czech", proficiency: "Native speaker" },
+    { language: "English", proficiency: "Full professional proficiency (C1/C2)" }
   ],
   footer: {
     rights: "Patrik Šmidoch. All rights reserved.",
@@ -271,6 +273,7 @@ export const cvDataCz: CVContent = {
     summary: "Student víceletého gymnázia se zájmem o propojení moderního HR, náboru, programování (Python, C), webového vývoje (HTML, CSS, JavaScript) a technologií Microsoft (Power BI, Azure).",
     downloadCV: "Stáhnout CV (PDF)",
     copyEmail: "Kopírovat e-mail",
+    copiedLabel: "Zkopírováno!",
     copiedNotice: "E-mailová adresa byla zkopírována do schránky!",
     contactMe: "Napsat zprávu"
   },
@@ -283,6 +286,7 @@ export const cvDataCz: CVContent = {
     certificationsSubtitle: "Ověřené kurzy a mezinárodní zkoušky.",
     competitionsTitle: "Soutěže",
     competitionsSubtitle: "Soutěžní úspěchy a ocenění.",
+    viewCertificate: "Zobrazit certifikát",
     contactTitle: "Spojme se",
     contactSubtitle: "Jsem otevřen diskusím, stážovým příležitostem a zajímavým projektům."
   },
@@ -367,27 +371,29 @@ export const cvDataCz: CVContent = {
       name: "Linux Unhatched",
       issuer: "Cisco Networking Academy / NDG",
       category: "tech",
-      badgeLabel: "Linuxové systémy"
+      badgeLabel: "Linuxové systémy",
+      certificateUrl: "https://example.com/certificates/linux-unhatched"
     },
     {
       name: "Introduction to Programming",
       issuer: "University of Helsinki (MOOC.fi)",
       category: "tech",
       badgeLabel: "Python MOOC · 5 ECTS",
-      previewUrl: introductionToProgrammingPreview
+      certificateUrl: "https://example.com/certificates/introduction-to-programming"
     },
     {
       name: "AP Psychology",
       issuer: "College Board / Advanced Placement",
       category: "psychology",
-      badgeLabel: "Psychologie"
+      badgeLabel: "Psychologie",
+      certificateUrl: "https://example.com/certificates/ap-psychology"
     },
     {
       name: "First Certificate in English (FCE)",
       issuer: "Cambridge English",
       category: "language",
       badgeLabel: "Grade A · C1",
-      previewUrl: fcePreview
+      certificateUrl: "https://example.com/certificates/fce"
     }
   ],
   competitions: [
@@ -395,18 +401,19 @@ export const cvDataCz: CVContent = {
       name: "Best in English",
       organizer: "Czech-us / Institut kompetencí a rozvoje",
       badgeLabel: "Jazyková excelence",
-      previewUrl: bestInEnglishPreview
+      certificateUrl: "https://example.com/certificates/best-in-english"
     },
     {
       name: "Cyber Security Competition",
       organizer: "Centrum kybernetické bezpečnosti",
       badgeLabel: "2. místo · krajské kolo",
-      previewUrl: cyberCompetitionPreview
+      certificateUrl: "https://example.com/certificates/cyber-security-competition"
     },
     {
       name: "Biomechaton",
       organizer: "Soutěž v biomechanice",
-      badgeLabel: "Biomechanika"
+      badgeLabel: "Biomechanika",
+      certificateUrl: "https://example.com/certificates/biomechaton"
     }
   ],
   languages: [

@@ -4,27 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['Cal Sans', 'Inter', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       colors: {
-        brand: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae0fd',
-          300: '#7cc7fb',
-          400: '#38a9f7',
-          500: '#0e8ce9',
-          600: '#026fc7',
-          700: '#0358a1',
-          800: '#074b84',
-          900: '#0c3f6e',
-        }
-      }
+        page: 'var(--bg)',
+        surface: 'var(--surface)',
+        primary: 'var(--text-primary)',
+        secondary: 'var(--text-secondary)',
+        muted: 'var(--text-muted)',
+        line: 'var(--line)',
+        accent: 'var(--accent)',
+      },
+      maxWidth: {
+        measure: '65ch',
+      },
+      transitionTimingFunction: {
+        out: 'cubic-bezier(.22, 1, .36, 1)',
+      },
     },
   },
   plugins: [],

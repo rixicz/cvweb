@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { FileDown, Copy, Check, MapPin, Briefcase, Mail, Linkedin, Github } from 'lucide-react';
+import { FileDown, Copy, Check, MapPin, Briefcase, Linkedin, Github } from 'lucide-react';
 
 interface HeroProps {
   onCopyEmail: () => void;
@@ -11,83 +11,73 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail, copied }) => {
   const { data } = useLanguage();
 
   return (
-    <section id="about" className="pt-16 pb-14 md:pt-24 md:pb-20 border-b border-slate-200/80 dark:border-slate-800/80">
-      <div className="readable-shadow max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Main Title & Role */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-          {data.meta.name}
-        </h1>
+    <section id="about" className="relative flex min-h-[calc(100svh-5rem)] items-center py-20 sm:py-28">
+      <div className="shell w-full">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <p className="text-base font-semibold tracking-wide text-accent sm:text-lg">
+            {data.meta.headline}
+          </p>
 
-        <p className="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-6">
-          {data.meta.headline}
-        </p>
+          <h1 className="hero-name mt-4 text-primary">{data.meta.name}</h1>
 
-        {/* Meta details: Location, Email */}
-        <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-sm text-slate-600 dark:text-slate-400 mb-8">
-          <div className="inline-flex items-center gap-1.5">
-            <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
-            <span>{data.meta.location}</span>
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-secondary sm:text-xl">
+            {data.hero.summary}
+          </p>
+
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-base text-muted">
+            <span className="inline-flex items-center gap-2.5">
+              <MapPin className="h-5 w-5 shrink-0 text-accent" />
+              {data.meta.location}
+            </span>
+            <span className="inline-flex items-center gap-2.5">
+              <Briefcase className="h-5 w-5 shrink-0 text-accent" />
+              Conectio Group · NPÚ
+            </span>
           </div>
-          <div className="inline-flex items-center gap-1.5">
-            <Briefcase className="w-4 h-4 text-slate-400 shrink-0" />
-            <span>Conectio Group · NPÚ</span>
-          </div>
-          <div className="inline-flex items-center gap-1.5">
-            <Mail className="w-4 h-4 text-slate-400 shrink-0" />
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={`mailto:${data.meta.email}`}
-              className="hover:text-slate-900 dark:hover:text-white underline decoration-slate-300 dark:decoration-slate-700 underline-offset-4"
-            >
-              {data.meta.email}
-            </a>
-          </div>
-        </div>
-
-        {/* Summary */}
-        <p className="text-base sm:text-lg font-medium leading-relaxed text-slate-800 dark:text-slate-100 max-w-3xl mb-10">
-          {data.hero.summary}
-        </p>
-
-        {/* Actions: Download, Copy Email, Socials */}
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href={data.meta.pdfPath}
-            download="Patrik_Smidoch_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="no-halo inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 transition-colors shadow-sm"
-          >
-            <FileDown className="w-4 h-4" />
-            <span>{data.hero.downloadCV}</span>
-          </a>
-
-          <button
-            onClick={onCopyEmail}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-2xs"
-          >
-            {copied ? <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-500" />}
-            <span>{copied ? (data.hero.copiedNotice.split('!')[0] + '!') : data.hero.copyEmail}</span>
-          </button>
-
-          <div className="flex items-center gap-2 sm:ml-2">
-            <a
-              href={data.meta.linkedin}
+              href={data.meta.pdfPath}
+              download="Patrik_Smidoch_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-400 dark:hover:border-blue-500 transition-colors shadow-2xs"
+              className="action-btn"
             >
-              <Linkedin className="w-4 h-4" />
+              <FileDown className="h-5 w-5 text-accent" />
+              <span>{data.hero.downloadCV}</span>
             </a>
+
+            <button
+              type="button"
+              onClick={onCopyEmail}
+              className="action-btn"
+            >
+              {copied ? (
+                <Check className="h-5 w-5 text-emerald-400" />
+              ) : (
+                <Copy className="h-5 w-5 text-accent" />
+              )}
+              <span>{copied ? data.hero.copiedLabel : data.hero.copyEmail}</span>
+            </button>
 
             <a
               href={data.meta.github}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 hover:text-slate-950 dark:hover:text-white hover:border-slate-500 transition-colors shadow-2xs"
+              className="action-btn"
             >
-              <Github className="w-4 h-4" />
+              <Github className="h-5 w-5 text-accent" />
+              <span>GitHub</span>
+            </a>
+
+            <a
+              href={data.meta.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-btn"
+            >
+              <Linkedin className="h-5 w-5 text-accent" />
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
