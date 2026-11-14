@@ -1,13 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Mail, Linkedin, Github, FileDown, ArrowUp, Copy, Check } from 'lucide-react';
+import { Mail, Linkedin, Github, ArrowUp } from 'lucide-react';
 
-interface FooterProps {
-  onCopyEmail: () => void;
-  copied: boolean;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onCopyEmail, copied }) => {
+export const Footer: React.FC = () => {
   const { data } = useLanguage();
 
   const scrollToTop = () => {
@@ -34,30 +29,6 @@ export const Footer: React.FC<FooterProps> = ({ onCopyEmail, copied }) => {
             </a>
 
             <div className="flex flex-wrap gap-3.5">
-              <a
-                href={data.meta.pdfPath}
-                download="Patrik_Smidoch_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-btn"
-              >
-                <FileDown className="h-5 w-5 text-accent" />
-                <span>{data.hero.downloadCV}</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={onCopyEmail}
-                className="action-btn"
-              >
-                {copied ? (
-                  <Check className="h-5 w-5 text-emerald-400" />
-                ) : (
-                  <Copy className="h-5 w-5 text-accent" />
-                )}
-                <span>{copied ? data.hero.copiedLabel : data.hero.copyEmail}</span>
-              </button>
-
               <a
                 href={data.meta.github}
                 target="_blank"

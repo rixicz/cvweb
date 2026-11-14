@@ -48,7 +48,7 @@ const CVApp: React.FC = () => {
           <CompetitionsSection />
         </main>
 
-        <Footer onCopyEmail={handleCopyEmail} copied={copied} />
+        <Footer />
       </div>
 
       <Toast message={data.hero.copiedNotice} visible={copied} />

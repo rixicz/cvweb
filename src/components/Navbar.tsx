@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { FileDown, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const SECTION_IDS = ['about', 'projects', 'skills', 'certifications', 'competitions', 'contact'];
 
@@ -90,15 +90,11 @@ export const Navbar: React.FC = () => {
             : 'bg-transparent'
         }`}
       >
-        <div className="flex h-20 items-center gap-6">
-          <a
-            href="#about"
-            className="text-base font-semibold tracking-tight text-primary transition-colors hover:text-accent"
+        <div className="relative flex h-20 items-center justify-center">
+          <nav
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex"
+            aria-label="Sections"
           >
-            {data.meta.name}
-          </a>
-
-          <nav className="ml-auto hidden items-center gap-8 lg:flex" aria-label="Sections">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -116,19 +112,8 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          <div className="ml-auto flex items-center gap-5 lg:ml-8">
+          <div className="ml-auto flex items-center gap-5">
             <div className="hidden sm:block">{languageSwitch}</div>
-
-            <a
-              href={data.meta.pdfPath}
-              download="Patrik_Smidoch_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-btn hidden py-2 px-4 text-sm sm:inline-flex"
-            >
-              <FileDown className="h-4 w-4 text-accent" />
-              <span>{data.hero.downloadCV}</span>
-            </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -162,18 +147,8 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            <div className="mt-4 flex items-center justify-between border-t border-[var(--line)] pt-4">
+            <div className="mt-4 flex items-center border-t border-[var(--line)] pt-4">
               {languageSwitch}
-              <a
-                href={data.meta.pdfPath}
-                download="Patrik_Smidoch_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="action-btn py-1.5 text-xs"
-              >
-                <FileDown className="h-3.5 w-3.5 text-accent" />
-                <span>{data.hero.downloadCV}</span>
-              </a>
             </div>
           </div>
         )}

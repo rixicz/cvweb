@@ -14,11 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail, copied }) => {
     <section id="about" className="relative flex min-h-[calc(100svh-5rem)] items-center py-20 sm:py-28">
       <div className="shell w-full">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <p className="text-base font-semibold tracking-wide text-accent sm:text-lg">
-            {data.meta.headline}
-          </p>
-
-          <h1 className="hero-name mt-4 text-primary">{data.meta.name}</h1>
+          <h1 className="hero-name text-primary">{data.meta.name}</h1>
 
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-secondary sm:text-xl">
             {data.hero.summary}

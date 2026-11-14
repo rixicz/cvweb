@@ -16,23 +16,23 @@ export const ProjectsSection: React.FC = () => {
           {data.projects.map((proj, idx) => (
             <article
               key={idx}
-              className="group grid gap-6 py-10 md:grid-cols-[3.5rem_minmax(0,1fr)_auto] md:items-start md:gap-8"
+              className="grid gap-6 py-10 md:grid-cols-[3.5rem_minmax(0,1fr)_auto] md:items-start md:gap-8"
             >
               <span className="font-mono text-sm tabular-nums text-muted md:pt-1">
                 {String(idx + 1).padStart(2, '0')}
               </span>
 
               <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="text-2xl font-semibold text-primary transition-colors group-hover:text-accent">
+                <h3 className="text-2xl font-semibold">
+                  <a
+                    href={proj.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary transition-colors hover:text-accent"
+                  >
                     {proj.name}
-                  </h3>
-                  {proj.featured && (
-                    <span className="rounded-full border border-sky-400/30 bg-sky-500/10 px-3 py-0.5 text-xs font-semibold text-sky-300">
-                      Featured
-                    </span>
-                  )}
-                </div>
+                  </a>
+                </h3>
 
                 <p className="mt-3 max-w-3xl text-base leading-relaxed text-secondary sm:text-lg">
                   {proj.description}
