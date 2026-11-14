@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Award, CheckCircle, Terminal, BookOpen } from 'lucide-react';
+import { CertificatePreview } from './CertificatePreview';
 
 export const CertificationsSection: React.FC = () => {
   const { data } = useLanguage();
@@ -37,6 +38,13 @@ export const CertificationsSection: React.FC = () => {
               className="group flex flex-col justify-between rounded-2xl p-4 transition-colors hover:bg-slate-100/70 dark:hover:bg-slate-800/40 sm:p-5"
             >
               <div>
+                {cert.previewUrl && (
+                  <CertificatePreview
+                    name={cert.name}
+                    previewUrl={cert.previewUrl}
+                  />
+                )}
+
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
                     {getCertIcon(cert.category)}

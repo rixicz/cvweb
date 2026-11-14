@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Trophy, Medal } from 'lucide-react';
+import { CertificatePreview } from './CertificatePreview';
 
 export const CompetitionsSection: React.FC = () => {
   const { data } = useLanguage();
@@ -24,6 +25,13 @@ export const CompetitionsSection: React.FC = () => {
               className="group flex flex-col justify-between rounded-2xl p-4 transition-colors hover:bg-slate-100/70 dark:hover:bg-slate-800/40 sm:p-5"
             >
               <div>
+                {competition.previewUrl && (
+                  <CertificatePreview
+                    name={competition.name}
+                    previewUrl={competition.previewUrl}
+                  />
+                )}
+
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800">
                     <Trophy className="w-5 h-5 text-amber-600 dark:text-amber-400" />

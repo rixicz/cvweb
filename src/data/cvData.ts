@@ -1,3 +1,8 @@
+import bestInEnglishPreview from './previews/best-in-english.webp';
+import cyberCompetitionPreview from './previews/cyber-security-competition.webp';
+import fcePreview from './previews/fce.webp';
+import introductionToProgrammingPreview from './previews/introduction-to-programming.webp';
+
 export interface Project {
   name: string;
   description: string;
@@ -11,12 +16,14 @@ export interface Certification {
   issuer: string;
   category: 'tech' | 'psychology' | 'language';
   badgeLabel?: string;
+  previewUrl?: string;
 }
 
 export interface Competition {
   name: string;
   organizer: string;
   badgeLabel?: string;
+  previewUrl?: string;
 }
 
 export interface SkillCategory {
@@ -193,23 +200,38 @@ export const cvDataEn: CVContent = {
       badgeLabel: "Linux Systems"
     },
     {
-      name: "Introduction to Python Programming 2026",
+      name: "Introduction to Programming",
       issuer: "University of Helsinki (MOOC.fi)",
       category: "tech",
-      badgeLabel: "Python"
+      badgeLabel: "Python MOOC · 5 ECTS",
+      previewUrl: introductionToProgrammingPreview
     },
     {
       name: "AP Psychology",
       issuer: "College Board / Advanced Placement",
       category: "psychology",
       badgeLabel: "Psychology"
+    },
+    {
+      name: "First Certificate in English (FCE)",
+      issuer: "Cambridge English",
+      category: "language",
+      badgeLabel: "Grade A · C1",
+      previewUrl: fcePreview
     }
   ],
   competitions: [
     {
       name: "Best in English",
-      organizer: "International English Competition",
-      badgeLabel: "Language Excellence"
+      organizer: "Czech-us / Institute of Competencies and Development",
+      badgeLabel: "Language Excellence",
+      previewUrl: bestInEnglishPreview
+    },
+    {
+      name: "Cyber Security Competition",
+      organizer: "Centrum kybernetické bezpečnosti",
+      badgeLabel: "2nd Place · Regional Round",
+      previewUrl: cyberCompetitionPreview
     },
     {
       name: "Biomechaton",
@@ -348,23 +370,38 @@ export const cvDataCz: CVContent = {
       badgeLabel: "Linuxové systémy"
     },
     {
-      name: "Introduction to Python Programming 2026",
+      name: "Introduction to Programming",
       issuer: "University of Helsinki (MOOC.fi)",
       category: "tech",
-      badgeLabel: "Python"
+      badgeLabel: "Python MOOC · 5 ECTS",
+      previewUrl: introductionToProgrammingPreview
     },
     {
       name: "AP Psychology",
       issuer: "College Board / Advanced Placement",
       category: "psychology",
       badgeLabel: "Psychologie"
+    },
+    {
+      name: "First Certificate in English (FCE)",
+      issuer: "Cambridge English",
+      category: "language",
+      badgeLabel: "Grade A · C1",
+      previewUrl: fcePreview
     }
   ],
   competitions: [
     {
       name: "Best in English",
-      organizer: "Mezinárodní anglická soutěž",
-      badgeLabel: "Jazyková excelence"
+      organizer: "Czech-us / Institut kompetencí a rozvoje",
+      badgeLabel: "Jazyková excelence",
+      previewUrl: bestInEnglishPreview
+    },
+    {
+      name: "Cyber Security Competition",
+      organizer: "Centrum kybernetické bezpečnosti",
+      badgeLabel: "2. místo · krajské kolo",
+      previewUrl: cyberCompetitionPreview
     },
     {
       name: "Biomechaton",
