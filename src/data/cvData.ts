@@ -125,6 +125,12 @@ export const cvDataEn: CVContent = {
       githubUrl: "https://github.com/rixicz/gyri_meal"
     },
     {
+      name: "pid_train_delay",
+      description: "Python automation that tracks the delay of a specified line in the Prague Integrated Transport (PID).",
+      tech: ["Python", "YAML"],
+      githubUrl: "https://github.com/rixicz/pid_train_delay_public"
+    },
+    {
       name: "Nand2Tetris",
       description: "Assembled a complete 16-bit Hack computer from first principles (elementary logic gates up to ALU, CPU, Memory, and Hack assembly interpreter).",
       tech: ["HDL", "Computer Architecture", "Hardware Sim", "Assembly"],
@@ -142,12 +148,6 @@ export const cvDataEn: CVContent = {
       tech: ["JavaScript", "CSS", "UI Design"],
       githubUrl: "https://github.com/rixicz/calculator"
     },
-    {
-      name: "Etch-a-Sketch",
-      description: "Interactive browser grid drawing canvas featuring dynamic grid dimension configuration, multi-color modes, shading opacity increments, and responsive canvas sizing.",
-      tech: ["JavaScript", "DOM Scripting", "CSS Flex/Grid"],
-      githubUrl: "https://github.com/rixicz/etch-a-sketch"
-    }
   ],
   skillCategories: [
     {
@@ -297,6 +297,12 @@ export const cvDataCz: CVContent = {
       githubUrl: "https://github.com/rixicz/gyri_meal"
     },
     {
+      name: "pid_train_delay",
+      description: "Python automatizace, která sleduje zpoždění daného spoje pomocí živé mapy od Pražské integrované dopravy (PID).",
+      tech: ["Python", "YAML"],
+      githubUrl: "https://github.com/rixicz/pid_train_delay_public"
+    },
+    {
       name: "Nand2Tetris",
       description: "Sestavení kompletního 16bitového počítače Hack od základních logických hradel až po ALU, procesor, paměťovou hierarchii a assembler.",
       tech: ["HDL", "Architektura počítačů", "Simulace HW", "Assembler"],
@@ -314,12 +320,6 @@ export const cvDataCz: CVContent = {
       tech: ["JavaScript", "CSS", "UI Design"],
       githubUrl: "https://github.com/rixicz/calculator"
     },
-    {
-      name: "Etch-a-Sketch",
-      description: "Interaktivní virtuální kreslicí tabulka s dynamickým nastavením mřížky, volbou RGB barev a postupným stínováním průhlednosti.",
-      tech: ["JavaScript", "DOM Scripting", "CSS Flex/Grid"],
-      githubUrl: "https://github.com/rixicz/etch-a-sketch"
-    }
   ],
   skillCategories: [
     {
