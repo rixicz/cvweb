@@ -44,3 +44,7 @@ npm run preview  # preview the build locally
 ```
 
 Deployment to GitHub Pages is automated by `.github/workflows/deploy.yml` on pushes to `main`. In the repository, set **Settings → Pages → Source** to **GitHub Actions** once.
+
+## AI Element
+
+This repository was created with AI.
